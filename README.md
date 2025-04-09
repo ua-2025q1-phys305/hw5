@@ -47,6 +47,27 @@ alongside `pytest` to validate your code and to better understand the
 behavior of your implementations.
 
 
+### **Assignment 1**: Run Tutorial 3.2 from the GW ODW 2024 #7 (2 points)
+
+* **Objective**:
+
+  Add [Tutorial 3.2](https://github.com/gw-odw/odw-2024/blob/main/Tutorials/Day_3/Tuto_3.2_Parameter_estimation_for_compact_object_mergers.ipynb)
+  from Gravitational Wave Open Data Workshop #7 to this repository,
+  set up the environment so it can be run automatically to pass
+  autotest.
+
+* **Details**:
+  You are required to:
+
+  1. Download
+     [Tutorial 3.2](https://github.com/gw-odw/odw-2024/blob/main/Tutorials/Day_3/Tuto_3.2_Parameter_estimation_for_compact_object_mergers.ipynb)
+     and add it to this repository as `notebook/a1.ipynb`.
+
+  2. Potentially modify `notebook/a1.ipynb` so it can be run
+     successfully on VSCode.
+
+  3. Potentially modify "pyproject.toml" to set up the python
+     envirnment so the notebook can be run (tested) automatically.
 
 
 ## Additional Notes
