@@ -47,13 +47,16 @@ alongside `pytest` to validate your code and to better understand the
 behavior of your implementations.
 
 
-### **Assignment 1**: Run Tutorial 3.2 from the GW ODW 2024 #7 (2 points)
+### **Assignment 1**: Run Tutorial 3.2 from the GW ODW 2024 and Test at Least One Built-in Sampler (2 points)
 
 * **Objective**:
   Add [Tutorial 3.2](https://github.com/gw-odw/odw-2024/blob/main/Tutorials/Day_3/Tuto_3.2_Parameter_estimation_for_compact_object_mergers.ipynb)
   from Gravitational Wave Open Data Workshop #7 to this repository,
   set up the environment so it can be run automatically to pass
   autotest.
+  [Bilby](https://lscsoft.docs.ligo.org/bilby) has [multiple built-in
+  samplers](https://lscsoft.docs.ligo.org/bilby/samplers.html#).
+  Test them and make at least one work for the ODW tutorial.
 
 * **Details**:
   You are required to:
@@ -68,27 +71,11 @@ behavior of your implementations.
   3. Potentially modify "pyproject.toml" to set up the python
      environment so the notebook can be run (tested) automatically.
 
-  4. Commit all changes (including the notebook) to Git.
-
-
-### **Assignment 2**: Test at Least One Built-in Bilby Sampler (2 points)
-
-* **Objective**:
-  [Bilby](https://lscsoft.docs.ligo.org/bilby) has [multiple built-in
-  samplers](https://lscsoft.docs.ligo.org/bilby/samplers.html#).
-  Test them and make at least one work for the ODW tutorial.
-
-* **Details**:
-  You are required to:
-
-  1. Copy `src/phys305_hw5/a1.ipynb` to `src/phys305_hw5/a2.ipynb` and
-     add it to this Git repo.
-
-  2. Right below `# Run the analysis`, run
+  4. Right below `# Run the analysis`, run
      `bilby.core.sampler.get_implemented_samplers()`
      to get a list of implemented samplers.
 
-  3. Test at least one of them by changing the cell
+  5. Test at least one of them by changing the cell
      ```
      result_short = bilby.run_sampler(
          likelihood, prior, sampler='bilby_mcmc', outdir='short', label="GW150914",
@@ -100,10 +87,10 @@ behavior of your implementations.
      python environment so the notebook can be run (tested)
      automatically.
 
-  4. Commit all changes (including the notebook) to Git.
+  6. Commit all changes (including the notebook) to Git.
 
 
-### **Assignment 3**: Setup Bibly Plugin to Implement Your Own Sampler
+### **Assignment 2**: Setup Bibly Plugin to Implement Your Own Sampler (2 points)
 
 * **Objective**:
   Following the
@@ -119,14 +106,35 @@ behavior of your implementations.
      Let's name the sampler `MySampler` so the pyproject section looks like:
      ```
      [project.entry-points."bilby.samplers"]
-     mysampler = "phys305_hw5.a34:MySampler"
+     mysampler = "phys305_hw5.a3:MySampler"
      ```
+     Let's also make sure that it subclasses `MCMCSampler` instead of
+     `NestedSampler`.
 
   2. Given the above entry point, copy the
      [template](https://github.com/bilby-dev/sampler-template/blob/main/src/demo_sampler_bilby/plugin.py)
-     to `src/phys305_hw5/a34.py` and rename the class accordingly.
+     to `src/phys305_hw5/a3.py` and rename the class accordingly.
 
   3. Commit all changes (including the notebook) to Git.
+
+
+### **Assignment 3**: Implement an MCMC Sampler (4 points)
+
+* **Objective**:
+  Implement `MySampler` using a simple Markov chain Monte Carlo
+  (MCMC) sampler based on our class example.
+
+* **Details**:
+  You are required to:
+
+  1. Implement at least `MySampler.run_sampler()` in
+     `src/phys305_hw5/a3.py`.
+     Note that although the template looks complicated, it is very
+     similar to what we covered in class.
+     All the extra codes are just to make the data structure follow
+     Bilby's conventions.
+
+  2. Commit all changes to Git.
 
 
 ## Additional Notes
