@@ -5,3 +5,9 @@ dependencies = [
     "nbconvert",
     "pytest",
 ]
+
+[project.entry-points."bilby.plugin"]
+mymcmc = "mypackage.mymcmc"
+
+[project.entry-points."bilby.samplers"]
+mysampler = "phys305_hw5.a2:MySampler"
